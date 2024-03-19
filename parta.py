@@ -21,17 +21,11 @@ def genprime():
 def splitkey():
     print("Please input key:")
     key = input()
-    keyarray = list(key)
-    count = 0
-    continue3 = True
-    while count < math.floor(len(keyarray) + 1) and continue3:
-        try:
-            keyarray[count] += keyarray[count + 1]
-            keyarray.remove(keyarray[count + 1])
-            keyarray[count] = int(keyarray[count])
-        except IndexError:
-            continue3 = False
-        count += 1
+
+    keyarray = []
+    random.seed(int(key))
+    for i in range(256):
+        keyarray.append(random.randint(0,99))
     
     return keyarray
 
